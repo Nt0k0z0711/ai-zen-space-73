@@ -50,10 +50,10 @@ function Index() {
       <main className="flex-1 animate-fade-up px-5 py-8 sm:px-10 sm:py-12">
         <div className="mx-auto w-full max-w-[1400px]">
           <section className="hero-gradient rounded-[24px] p-8 sm:p-10">
-            <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-primary-foreground sm:text-[36px] sm:leading-tight">
+            <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-hero-foreground sm:text-[36px] sm:leading-tight">
               Work faster with AI
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-current/80">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-hero-foreground/85">
               Three focused tools for professionals: write better emails, digest research and get
               instant answers. No account needed — everything stays in this browser session.
             </p>
