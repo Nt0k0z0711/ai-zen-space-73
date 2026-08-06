@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail, Search, MessageSquare, ShieldCheck } from "lucide-react";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,18 +30,22 @@ const cards = [
     icon: Mail,
     title: "Smart Email Generator",
     description: "Draft polished emails with the right tone in seconds.",
+    to: "/email",
   },
   {
     icon: Search,
     title: "AI Research Assistant",
     description: "Turn topics, articles or links into a clear research brief.",
+    to: "/research",
   },
   {
     icon: MessageSquare,
     title: "AI Chatbot",
     description: "Ask questions, brainstorm ideas and plan your work.",
+    to: "/chat",
   },
-];
+] as const;
+
 
 function Index() {
   return (
