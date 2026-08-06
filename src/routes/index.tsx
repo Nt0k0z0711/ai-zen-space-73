@@ -74,9 +74,13 @@ function Index() {
                 <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                   {card.description}
                 </p>
-                <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85">
+                <Link
+                  to={card.to}
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85"
+                >
                   Open <span aria-hidden>→</span>
-                </button>
+                </Link>
+
               </article>
             ))}
           </section>
