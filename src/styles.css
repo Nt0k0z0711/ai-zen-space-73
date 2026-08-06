@@ -165,6 +165,7 @@
 
 @utility hero-gradient {
   background-image: var(--gradient-hero);
+  color: oklch(0.99 0.005 330);
   border: 1px solid oklch(1 0 0 / 0.08);
 }
 

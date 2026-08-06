@@ -53,7 +53,7 @@ function Index() {
             <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-primary-foreground sm:text-[36px] sm:leading-tight">
               Work faster with AI
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary-foreground/85">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-current/80">
               Three focused tools for professionals: write better emails, digest research and get
               instant answers. No account needed — everything stays in this browser session.
             </p>
