@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail, Search, MessageSquare, ShieldCheck } from "lucide-react";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,18 +30,22 @@ const cards = [
     icon: Mail,
     title: "Smart Email Generator",
     description: "Draft polished emails with the right tone in seconds.",
+    to: "/email",
   },
   {
     icon: Search,
     title: "AI Research Assistant",
     description: "Turn topics, articles or links into a clear research brief.",
+    to: "/research",
   },
   {
     icon: MessageSquare,
     title: "AI Chatbot",
     description: "Ask questions, brainstorm ideas and plan your work.",
+    to: "/chat",
   },
-];
+] as const;
+
 
 function Index() {
   return (
@@ -69,9 +74,13 @@ function Index() {
                 <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                   {card.description}
                 </p>
-                <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85">
+                <Link
+                  to={card.to}
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85"
+                >
                   Open <span aria-hidden>→</span>
-                </button>
+                </Link>
+
               </article>
             ))}
           </section>
