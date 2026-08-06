@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Mail,
@@ -11,16 +12,16 @@ import {
 } from "lucide-react";
 
 const items = [
-  { title: "Dashboard", icon: LayoutDashboard },
-  { title: "Smart Email Generator", icon: Mail },
-  { title: "AI Research Assistant", icon: Search },
-  { title: "AI Chatbot", icon: MessageSquare },
-  { title: "Help", icon: CircleHelp },
-];
+  { title: "Dashboard", icon: LayoutDashboard, to: "/" },
+  { title: "Smart Email Generator", icon: Mail, to: "/email" },
+  { title: "AI Research Assistant", icon: Search, to: "/research" },
+  { title: "AI Chatbot", icon: MessageSquare, to: "/chat" },
+  { title: "Help", icon: CircleHelp, to: "/help" },
+] as const;
 
 export function DashboardSidebar() {
   const [collapsed, setCollapsed] = useState(false);
-  const [active, setActive] = useState("Dashboard");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <aside
@@ -52,11 +53,11 @@ export function DashboardSidebar() {
 
         <nav className="mt-2 flex flex-col gap-1">
           {items.map((item) => {
-            const isActive = active === item.title;
+            const isActive = pathname === item.to;
             return (
-              <button
+              <Link
                 key={item.title}
-                onClick={() => setActive(item.title)}
+                to={item.to}
                 title={item.title}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-colors duration-200 ${
                   isActive
@@ -66,7 +67,7 @@ export function DashboardSidebar() {
               >
                 <item.icon className="h-4 w-4 shrink-0" />
                 {!collapsed && <span className="truncate">{item.title}</span>}
-              </button>
+              </Link>
             );
           })}
         </nav>
