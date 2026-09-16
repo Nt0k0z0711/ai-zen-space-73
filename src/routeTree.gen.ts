@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as EmailRouteImport } from './routes/email'
 import { Route as HelpRouteImport } from './routes/help'
+import { Route as LashesRouteImport } from './routes/lashes'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
@@ -36,6 +37,11 @@ const HelpRoute = HelpRouteImport.update({
   path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LashesRoute = LashesRouteImport.update({
+  id: '/lashes',
+  path: '/lashes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/chat': typeof ChatRoute
   '/email': typeof EmailRoute
   '/help': typeof HelpRoute
+  '/lashes': typeof LashesRoute
   '/research': typeof ResearchRoute
   '/api/chat': typeof ApiChatRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/chat': typeof ChatRoute
   '/email': typeof EmailRoute
   '/help': typeof HelpRoute
+  '/lashes': typeof LashesRoute
   '/research': typeof ResearchRoute
   '/api/chat': typeof ApiChatRoute
 }
@@ -69,16 +77,25 @@ export interface FileRoutesById {
   '/chat': typeof ChatRoute
   '/email': typeof EmailRoute
   '/help': typeof HelpRoute
+  '/lashes': typeof LashesRoute
   '/research': typeof ResearchRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat' | '/email' | '/help' | '/research' | '/api/chat'
+  fullPaths:
+    '/' | '/chat' | '/email' | '/help' | '/lashes' | '/research' | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat' | '/email' | '/help' | '/research' | '/api/chat'
+  to: '/' | '/chat' | '/email' | '/help' | '/lashes' | '/research' | '/api/chat'
   id:
-    '__root__' | '/' | '/chat' | '/email' | '/help' | '/research' | '/api/chat'
+    | '__root__'
+    | '/'
+    | '/chat'
+    | '/email'
+    | '/help'
+    | '/lashes'
+    | '/research'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -86,6 +103,7 @@ export interface RootRouteChildren {
   ChatRoute: typeof ChatRoute
   EmailRoute: typeof EmailRoute
   HelpRoute: typeof HelpRoute
+  LashesRoute: typeof LashesRoute
   ResearchRoute: typeof ResearchRoute
   ApiChatRoute: typeof ApiChatRoute
 }
@@ -120,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lashes': {
+      id: '/lashes'
+      path: '/lashes'
+      fullPath: '/lashes'
+      preLoaderRoute: typeof LashesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/research': {
       id: '/research'
       path: '/research'
@@ -142,6 +167,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChatRoute: ChatRoute,
   EmailRoute: EmailRoute,
   HelpRoute: HelpRoute,
+  LashesRoute: LashesRoute,
   ResearchRoute: ResearchRoute,
   ApiChatRoute: ApiChatRoute,
 }
