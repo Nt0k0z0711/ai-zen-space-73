@@ -184,8 +184,8 @@ const styles = `
 .fl .fl-hero h1 em{font-style:italic;color:#a97e68;}
 .fl .fl-hero p{color:#8c7d74;font-size:1.1rem;max-width:460px;margin-bottom:36px;}
 .fl .fl-hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
-.fl .fl-hero-visual{position:relative;aspect-ratio:4/5;border-radius:18px 18px 200px 200px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(140,102,84,.4);}
-.fl .fl-hero-visual img{width:100%;height:100%;object-fit:cover;}
+.fl .fl-hero-visual{position:relative;aspect-ratio:4/5;border-radius:18px 18px 200px 200px;box-shadow:0 30px 60px -20px rgba(140,102,84,.4);}
+.fl .fl-hero-visual img{width:100%;height:100%;object-fit:cover;border-radius:inherit;}
 .fl .fl-badge{position:absolute;bottom:-22px;left:-22px;background:#fff;border-radius:50%;width:130px;height:130px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#a97e68;box-shadow:0 16px 40px -12px rgba(35,31,30,.25);padding:16px;}
 
 /* marquee */
